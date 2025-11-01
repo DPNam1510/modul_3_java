@@ -62,23 +62,23 @@ VALUES (3, 3, 8, 1);
 INSERT INTO Mark (Mark_SubID, Mark_StuID, Mark, ExamTimes)
 VALUES (4, 4, 9, 1);
 
-#1. Hiển thị tất cả các sinh viên có tên bắt đầu bảng ký tự ‘h’
+-- 1. Hiển thị tất cả các sinh viên có tên bắt đầu bảng ký tự ‘h’
 
 select * from Student where StuName like'H%';
 
-# 2. Hiển thị các thông tin lớp học có thời gian bắt đầu vào tháng 12.
+-- 2. Hiển thị các thông tin lớp học có thời gian bắt đầu vào tháng 12.
 
 select * from Class where month(StartDate)=12;
 
-# 3. Hiển thị tất cả các thông tin môn học có credit trong khoảng từ 3-5.
+-- 3. Hiển thị tất cả các thông tin môn học có credit trong khoảng từ 3-5.
 
 select * from Subject where Credit in(3,4,5);
 
-# 4. Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
+-- 4. Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
 
 update Student set CLASS_ID = 2 where StuID= 5;
 
-# 5 .Hiển thị các thông tin: StuName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
+-- 5 .Hiển thị các thông tin: StuName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
 
 SELECT Stu.StuName, Sub.SubName, M.Mark
 FROM Mark M
