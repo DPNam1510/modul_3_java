@@ -78,11 +78,33 @@ select * from Subject where Credit in(3,4,5);
 
 update Student set CLASS_ID = 2 where StuID= 5;
 
+<<<<<<< HEAD
 -- 5 .Hiển thị các thông tin: StuName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
+=======
+-- 5. Hiển thị các thông tin: StuName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
+>>>>>>> a9aed23 (ss4)
 
 SELECT Stu.StuName, Sub.SubName, M.Mark
 FROM Mark M
 JOIN Student Stu ON M.Mark_StuID = Stu.StuID
 JOIN subject Sub ON M.Mark_SubID = Sub.SubID
 ORDER BY M.Mark DESC, Stu.StuName ASC;
+<<<<<<< HEAD
  
+=======
+-- 6. Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
+SELECT *
+FROM Subject Sub
+WHERE Credit = (SELECT MAX(Credit) FROM Subject);
+-- 7. Hiển thị các thông tin môn học có điểm thi lớn nhất.
+SELECT *
+FROM Mark m
+WHERE Mark = (SELECT MAX(Mark) FROM Mark);
+-- 8. Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+SELECT Stu.*, AVG(Sub.Credit) as 'Average'
+FROM Student Stu
+JOIN Subject Sub ON Sub.SubID = Stu.StuID
+GROUP BY Stu.StuID
+ORDER BY Average DESC;
+ 
+>>>>>>> a9aed23 (ss4)
